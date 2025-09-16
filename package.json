@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --mode development --open --debug",
     "storybook": "start-storybook",
     "build": "webpack --mode production",
+    "build:v3": "node scripts/build-v3.js",
     "postbuild": "node scripts/firefox-fix.js",
     "devbuild": "webpack --mode development",
     "type-check": "tsc --noEmit",
