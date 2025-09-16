@@ -43,6 +43,22 @@ yarn pdf
 yarn build
 ```
 
+### Manifest V3 支持
+
+沙拉查词现在同时支持 Manifest V2 和 V3：
+
+- **Manifest V2**: `yarn build` (默认，支持 Chrome 55+)
+- **Manifest V3**: `yarn build:v3` (需要 Chrome 88+)
+
+V3 构建会自动转换：
+- `browser_action` → `action`
+- 后台脚本 → Service Worker
+- 内容安全策略格式
+- 权限结构
+- 网页可访问资源格式
+
+两个版本提供相同的功能，V3 版本确保未来的 Chrome 兼容性。
+
 在 `build/` 目录下可查看针对各个浏览器打包好的扩展包。
 
 ## 开发

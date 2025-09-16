@@ -74,14 +74,12 @@ module.exports = {
     }
   },
 
-  web_accessible_resources: [{
-    resources: [
-      'assets/*',
-      'audio-control.html',
-      'quick-search.html'
-    ],
-    matches: ['<all_urls>']
-  }],
+  web_accessible_resources: [
+    {
+      resources: ['assets/*', 'audio-control.html', 'quick-search.html'],
+      matches: ['<all_urls>']
+    }
+  ],
 
   permissions: [
     'alarms',
@@ -93,9 +91,7 @@ module.exports = {
     'unlimitedStorage'
   ],
 
-  host_permissions: [
-    '<all_urls>'
-  ],
+  host_permissions: ['<all_urls>'],
 
   optional_permissions: ['clipboardRead', 'clipboardWrite'],
 

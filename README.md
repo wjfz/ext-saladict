@@ -48,6 +48,22 @@ Add a `.env` file following the `.env.example` format(leave empty if you don't u
 yarn build
 ```
 
+### Manifest V3 Support
+
+Saladict now supports both Manifest V2 and V3:
+
+- **Manifest V2**: `yarn build` (default, supports Chrome 55+)
+- **Manifest V3**: `yarn build:v3` (Chrome 88+ required)
+
+The V3 build automatically converts:
+- `browser_action` → `action`
+- Background scripts → Service Worker
+- Content Security Policy format
+- Permissions structure
+- Web accessible resources format
+
+Both versions provide the same functionality, with V3 ensuring future Chrome compatibility.
+
 Artifacts can be found in `build/`.
 
 ## Development
