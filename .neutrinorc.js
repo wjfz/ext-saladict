@@ -10,8 +10,11 @@ const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 const dotenv = require('dotenv')
 const argv = require('yargs').argv
 const AfterBuildPlugin = require('./scripts/after-build')
+const ManifestV3Plugin = require('./scripts/manifest-v3-plugin')
+const ServiceWorkerPlugin = require('./scripts/service-worker-plugin')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const isAnalyze = argv.analyze || argv.analyse
+const isManifestV3 = process.env.MANIFEST_VERSION === '3'
 
 module.exports = {
   options: {
@@ -394,6 +397,17 @@ module.exports = {
       neutrino.config
         .plugin('after-build')
         .use(AfterBuildPlugin);
+      
+      // Add Manifest V3 support
+      if (isManifestV3) {
+        neutrino.config
+          .plugin('manifest-v3')
+          .use(ManifestV3Plugin);
+        
+        neutrino.config
+          .plugin('service-worker')
+          .use(ServiceWorkerPlugin);
+      }
     }
   ]
 }
